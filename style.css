@@ -24,6 +24,7 @@ h2 {
     border-bottom: 3px solid #17233d;
     padding-bottom: 10px;
     color: #060a14;
+    display: Block; 
 }
 
 
@@ -116,3 +117,4 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+
