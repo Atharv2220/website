@@ -1,32 +1,72 @@
+/* style.css */
+
+:root {
+    --primary: #7c3aed;
+    --secondary: #22d3ee;
+    --bg: #f8fafc;
+    --text: #1f2937;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0,0,0,0.15);
+}
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8fafc;
-    color: #1f2937;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    color: var(--text);
+    line-height: 1.6;
 }
 
 header {
-    background: linear-gradient(135deg, #112143, #7c3aed);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    background: linear-gradient(90deg, #ffffff, #e0f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: floatText 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatText {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-10px); }
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 15px;
 }
 
 section {
     max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--card-shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
-    border-bottom: 3px solid #17233d;
+    border-bottom: 3px solid var(--primary);
     padding-bottom: 10px;
-    color: #060a14;
-    display: Block; 
+    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
-
 
 .pricing {
     display: flex;
@@ -38,83 +78,73 @@ h2 {
 .card {
     flex: 1;
     min-width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffffff, #f0f4ff);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: white;
 }
 
 .price {
     font-size: 28px;
     font-weight: bold;
     margin: 15px 0;
-    color: #007bff;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1e1e1e;
-    color: white;
-    margin-top: 40px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 a {
-    color: #007bff;
+    color: var(--primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
+    color: var(--secondary);
     text-decoration: underline;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.5);
 }
-/* Smooth scrolling */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e1e1e;
+    color: white;
+    margin-top: 50px;
+}
+
+/* Smooth Scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* Fade-in Animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s ease forwards;
-}
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Card Hover Effekt */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
 
-/* Button Animation */
-button {
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
 
-button:hover {
-    transform: scale(1.05);
-}
+
 
